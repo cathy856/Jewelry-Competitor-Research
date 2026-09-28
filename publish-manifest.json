@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-09-28T02:37:16.140Z",
+  "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_整体优化0923.html",
+  "sourceBytes": 101691986,
+  "products": 27202,
+  "sites": 57,
+  "visionS": 40480,
+  "visionItems": 25365,
+  "files": [
+    {
+      "path": "data/registry-base.js",
+      "bytes": 54144
+    },
+    {
+      "path": "data/registry-00.js",
+      "bytes": 5026272
+    },
+    {
+      "path": "data/registry-01.js",
+      "bytes": 9631745
+    },
+    {
+      "path": "data/registry-02.js",
+      "bytes": 10390511
+    },
+    {
+      "path": "data/registry-03.js",
+      "bytes": 6804735
+    },
+    {
+      "path": "data/registry-04.js",
+      "bytes": 10097339
+    },
+    {
+      "path": "data/registry-05.js",
+      "bytes": 10379731
+    },
+    {
+      "path": "data/registry-06.js",
+      "bytes": 7253202
+    },
+    {
+      "path": "data/registry-07.js",
+      "bytes": 9519731
+    },
+    {
+      "path": "data/vision-base.js",
+      "bytes": 15662
+    },
+    {
+      "path": "data/vision-s-00.js",
+      "bytes": 10484428
+    },
+    {
+      "path": "data/vision-s-01.js",
+      "bytes": 454726
+    },
+    {
+      "path": "data/vision-items-00.js",
+      "bytes": 10485161
+    },
+    {
+      "path": "data/vision-items-01.js",
+      "bytes": 10485448
+    },
+    {
+      "path": "data/vision-items-02.js",
+      "bytes": 149075
+    },
+    {
+      "path": "index.html",
+      "bytes": 461351
+    }
+  ]
+}
