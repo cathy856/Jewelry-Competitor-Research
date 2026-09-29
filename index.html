@@ -1280,7 +1280,7 @@ section,.section{background:transparent!important;border:0!important;border-radi
       <button id="galPureBtn" onclick="toggleGalPure()" style="border:1px solid var(--gold);color:var(--gold);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">🪞 纯净模式 ✓</button>
       <span class="lbl" id="galPureLbl" style="color:var(--sub)">当前：🪞 纯净模式（仅图片）</span>
       <button id="galDlBtn" onclick="galDownloadAll()" style="border:1px solid var(--line);color:var(--ink);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">⬇ 下载全套 (0)</button>
-      <button id="galStarDlBtn" onclick="galDownloadStar()" style="border:1px solid var(--line);color:var(--ink);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">★ 星标ZIP (0)</button>
+      <button id="galStarDlBtn" onclick="galDownloadStar()" style="border:1px solid var(--line);color:var(--ink);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">★ 星标ZIP (加载中)</button>
       <select id="galSort" onchange="galSort=this.value; renderGallery();" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--card);color:var(--ink)">
         <option value="def">默认排序</option>
         <option value="priceAsc">价格 低 → 高</option>
@@ -6382,5 +6382,6 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,1250)});else setTimeout(boot,1250);
 })();
 </script>
+<script>if(window.WB&&window.WB.ready)window.WB.ready(function(){if(window.updateGalDlBtns)window.updateGalDlBtns()});</script>
 </body>
 </html>
