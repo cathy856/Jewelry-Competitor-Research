@@ -744,6 +744,20 @@
   .gal-light img { max-width: 62vw; max-height: 86vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); background: #fff; }
   .gal-info { color: #fff; max-width: 360px; display: flex; flex-direction: column; gap: 10px; max-height: 86vh; overflow-y: auto; padding-right: 6px; }
   .gi-title { font-size: 16px; font-weight: 700; line-height: 1.4; }
+  .gi-heading { display:flex; align-items:flex-start; flex-wrap:wrap; gap:6px 8px; }
+  .gi-heading .gi-title { order:1; flex:1 1 55%; min-width:0; overflow-wrap:anywhere; }
+  .gi-source { order:2; flex:0 1 auto; max-width:42%; padding:3px 7px; border:1px solid rgba(244,213,141,.55); border-radius:7px; background:rgba(201,162,75,.18); color:#f4d58d; font-size:11px; line-height:1.4; text-align:right; overflow-wrap:anywhere; }
+  .gi-heading .aporro-title-zh { order:3; flex:0 0 100%; margin:0; }
+  #galleryGrid .img-card .card-star { display:inline-flex!important; align-items:center!important; justify-content:center!important; width:26px!important; height:26px!important; line-height:1!important; font-size:0!important; color:transparent!important; border:1px solid rgba(255,255,255,.65)!important; box-sizing:border-box!important; }
+  #galleryGrid .img-card .card-star::before { content:"☆"; font-size:19px!important; line-height:1!important; color:#fff!important; }
+  #galleryGrid .img-card .card-star.on { background:rgba(99,70,5,.9)!important; border-color:#ffe08a!important; }
+  #galleryGrid .img-card .card-star.on::before { content:"★"; color:#ffe08a!important; }
+  #dataPanel .filters #starOnlyBtn.active { background:#173f73!important; border-color:#173f73!important; color:#fff!important; box-shadow:0 0 0 2px rgba(23,63,115,.16)!important; }
+  #galStar { display:none!important; }
+  #galStarOnlyBtn { min-height:34px; padding:6px 10px; border:1px solid #b9c7da!important; border-radius:9px; background:#fff!important; color:#173f73!important; cursor:pointer; }
+  #galStarOnlyBtn::before { content:"☆"; margin-right:5px; }
+  #galStarOnlyBtn.active { background:#173f73!important; border-color:#173f73!important; color:#fff!important; box-shadow:0 0 0 2px rgba(23,63,115,.16)!important; }
+  #galStarOnlyBtn.active::before { content:"★"; }
   .gi-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .gi-tag, .gi-site { background: rgba(255, 255, 255, 0.14); padding: 3px 9px; border-radius: 10px; font-size: 12px; }
   .gi-price { color: #f4d58d; font-weight: 700; font-size: 15px; }
@@ -1259,7 +1273,7 @@ section,.section{background:transparent!important;border:0!important;border-radi
       <select id="galCat" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--card);color:var(--ink)"><option value="">全部品类</option></select>
       <input type="text" id="galQ" placeholder="关键词：品名/风格" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--card);color:var(--ink);width:150px">
       <input type="number" id="galMin" placeholder="最低$" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--card);color:var(--ink);width:76px"> <span style="color:var(--sub)">~</span> <input type="number" id="galMax" placeholder="最高$" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--card);color:var(--ink);width:76px">
-      <label style="display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--sub);cursor:pointer"><input type="checkbox" id="galStar"> ⭐ 仅收藏</label>
+      <input type="checkbox" id="galStar" hidden><button type="button" id="galStarOnlyBtn" aria-pressed="false">只看星标</button>
       <button id="galFilterBtn" style="border:1px solid var(--gold);color:#fff;background:var(--gold);border-radius:8px;padding:6px 14px;font-size:12.5px;cursor:pointer">🔍 筛选</button>
       <button id="galResetBtn" style="border:1px solid var(--line);color:var(--ink);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">重置</button>
       <button id="galModeBtn" onclick="toggleGalMode()" style="border:1px solid var(--gold);color:var(--gold);background:var(--card);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer">👁 全量模式</button>
@@ -1334,7 +1348,7 @@ section,.section{background:transparent!important;border:0!important;border-radi
   <div class="gal-light" id="galLight">
     <img id="galImg" alt="" decoding="async" referrerpolicy="no-referrer" onerror="window.imgFallback&&imgFallback(this)">
     <div class="gal-info" id="galInfo">
-      <div class="gi-title" id="galTitle"></div>
+      <div class="gi-heading"><div class="gi-title" id="galTitle"></div><span class="gi-source" id="galSiteName"></span></div>
       <span class="gi-oos" id="galOos"></span>
       <div class="gi-price" id="galPrice"></div>
       <div class="gi-meta" id="galMeta"></div>
@@ -1705,7 +1719,7 @@ document.addEventListener('click', function(ev){
     var url = t.getAttribute('data-url');
     window.toggleStar(url);
     t.classList.toggle('on');
-    updateStarBar();
+    updateStarBar(); if(window.updateGalDlBtns) window.updateGalDlBtns();
   }
   if(t.classList && t.classList.contains('wb-cmp')){
     var checked = qsa('.wb-cmp').filter(function(c){return c.checked;});
@@ -1740,7 +1754,7 @@ function updateStarBar(){
 function toggleStarOnly(){
   window.state.starOnly = !window.state.starOnly;
   var b=$('starOnlyBtn');
-  if(b) b.classList.toggle('active', !!window.state.starOnly);
+  if(b){ b.classList.toggle('active', !!window.state.starOnly); b.setAttribute('aria-pressed', String(!!window.state.starOnly)); }
   if(window.applyFilter) window.applyFilter();
 }
 
@@ -2043,7 +2057,7 @@ function exportMatches(){
   };
   function updateGalDlBtns(){
     var n=galPool().length;             // 当前筛选全量图片数（替代已渲染 galList，与下载全套行为一致）
-    var st=(window.galList||[]).filter(function(im){ return window.isStar(im.url); }).length;
+    var st=galPool().filter(function(im){ return window.isStar(im.url); }).length;
     var b1=document.getElementById('galDlBtn'); if(b1) b1.textContent='⬇ 下载全套 ('+n+')';
     var b2=document.getElementById('galStarDlBtn'); if(b2) b2.textContent='★ 星标ZIP ('+st+')';
   }
@@ -2669,11 +2683,15 @@ function buildToolbar(){
   minEl.addEventListener('input', syncFromSliders);
   maxEl.addEventListener('input', syncFromSliders);
   // 与原有数字输入框双向同步
+  function showTypedPriceRange(){
+    var lo=$('fMin').value, hi=$('fMax').value;
+    txt.textContent='$'+(lo===''?'0':lo)+' – $'+(hi===''?PRICE_MAX:hi);
+  }
   if($('fMin')) $('fMin').addEventListener('input', function(){
-    var v=parseFloat(this.value); minEl.value = isNaN(v)?0:Math.min(PRICE_MAX,v); syncFromSliders();
+    var v=parseFloat(this.value); minEl.value=isNaN(v)?0:Math.max(0,Math.min(PRICE_MAX,v)); showTypedPriceRange();
   });
   if($('fMax')) $('fMax').addEventListener('input', function(){
-    var v=parseFloat(this.value); maxEl.value = isNaN(v)?PRICE_MAX:Math.min(PRICE_MAX,v); syncFromSliders();
+    var v=parseFloat(this.value); maxEl.value=isNaN(v)?PRICE_MAX:Math.max(0,Math.min(PRICE_MAX,v)); showTypedPriceRange();
   });
 
   // URL 解析入口
@@ -3865,6 +3883,7 @@ function renderGal(){
   document.getElementById('galImg').src = detailThumbUrl(im.img);
   document.getElementById('galImg').alt = full.name || im.alt || '';
   document.getElementById('galTitle').textContent = full.name || im.alt || '(未命名商品)';
+  document.getElementById('galSiteName').textContent = site ? site.title : (im.domain || '');
   var priceTxt = '价格未公开';
   if(full.priceUSD!=null && full.priceUSD>0){
     priceTxt = fmtUSD(full.priceUSD);
@@ -4074,6 +4093,7 @@ document.getElementById('btnReset').addEventListener('click', function(){
   document.getElementById('fMin').value='';
   document.getElementById('fMax').value='';
   document.getElementById('fSort').value='def';
+  var starOnlyButton=document.getElementById('starOnlyBtn'); if(starOnlyButton){starOnlyButton.classList.remove('active');starOnlyButton.setAttribute('aria-pressed','false');}
   applyFilter();
 });
 document.getElementById('fQ').addEventListener('keydown', function(e){ if(e.key==='Enter') document.getElementById('btnFilter').click(); });
@@ -4418,6 +4438,8 @@ function popGalFilters(){
   sel.value = prev; if(sel.value!==prev){ galCat=''; }
 }
 (function wireGalFilters(){
+  var only=document.getElementById('galStarOnlyBtn'),check=document.getElementById('galStar');
+  if(only&&check)only.addEventListener('click',function(){check.checked=!check.checked;only.classList.toggle('active',check.checked);only.setAttribute('aria-pressed',String(check.checked));readGalFilters();galVal='全部';renderStyleTabs();renderGallery()});
   var btn=document.getElementById('galFilterBtn');
   if(btn) btn.addEventListener('click', function(){ readGalFilters(); galVal='全部'; renderStyleTabs(); renderGallery(); });
   var qi=document.getElementById('galQ');
@@ -4427,6 +4449,7 @@ function popGalFilters(){
     ['galQ','galMin','galMax'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
     var sc=document.getElementById('galCat'); if(sc) sc.value='';
     var st=document.getElementById('galStar'); if(st) st.checked=false;
+    var only=document.getElementById('galStarOnlyBtn');if(only){only.classList.remove('active');only.setAttribute('aria-pressed','false')}
     galQ=''; galCat=''; galMin=''; galMax=''; galStar=false;
     galVal='全部';
     renderStyleTabs(); renderGallery();
@@ -6299,7 +6322,7 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
   function isNew(p){var d=String(p.date||'').slice(0,10);if(!/^\d{4}-\d\d-\d\d$/.test(d))return false;var age=(Date.now()-new Date(d+'T00:00:00').getTime())/86400000;return age>=0&&age<=90}
   function eligible(im){var p=findProduct(im),t=sourceText(p);if(watch.test(t))return false;if(cuban.test(t)&&!element.test(t))return false;if(p.galleryEligible===false)return false;return true}
   function matchesBusiness(im){var p=findProduct(im),mode=window.__aporroGalleryMode||'all';if(!eligible(im))return false;if(mode==='new')return isNew(p);if(mode==='best')return best.test(sourceText(p));return true}
-  function addControls(){var anchor=q('#fxGalleryCountry')||q('#dimSwitch');if(!anchor||q('#aporroGalleryBusiness'))return;var box=document.createElement('div');box.id='aporroGalleryBusiness';box.className='fx-gallery-business-filter';box.innerHTML='<b>图片范围</b><button type="button" data-mode="all" class="active">精选参考</button><button type="button" data-mode="best">畅销品（源站证据）</button><button type="button" data-mode="new">近 90 天新品</button><span class="fx-gallery-business-note">畅销品仅采信源站标签/字段中的 Best Seller、Best-selling、Top Seller 或“畅销”；不做销量推测。</span>';anchor.insertAdjacentElement('afterend',box);qa('button',box).forEach(function(btn){btn.onclick=function(){window.__aporroGalleryMode=btn.dataset.mode;qa('button',box).forEach(function(x){x.classList.toggle('active',x===btn)});if(window.renderStyleTabs)window.renderStyleTabs();if(window.renderGallery)window.renderGallery()}})}
+  function addControls(){var anchor=q('#fxGalleryCountry')||q('#dimSwitch');if(!anchor||q('#aporroGalleryBusiness'))return;var box=document.createElement('div');box.id='aporroGalleryBusiness';box.className='fx-gallery-business-filter';box.innerHTML='<b>图片范围</b><button type="button" data-mode="all" class="active">精选参考</button><button type="button" data-mode="best">畅销品（源站证据）</button><button type="button" data-mode="new">近 90 天新品</button><span class="fx-gallery-business-note">畅销品取自源站明确描述为 Best Seller、Best-selling、Top Seller 等畅销类描述的商品</span>';anchor.insertAdjacentElement('afterend',box);qa('button',box).forEach(function(btn){btn.onclick=function(){window.__aporroGalleryMode=btn.dataset.mode;qa('button',box).forEach(function(x){x.classList.toggle('active',x===btn)});if(window.renderStyleTabs)window.renderStyleTabs();if(window.renderGallery)window.renderGallery()}})}
   function pruneGallerySource(){if(window.__aporroGalleryPruned)return;window.__aporroGalleryPruned=true;var full=(window.FULL_GALLERY||[]).filter(matchesBusiness);window.FULL_GALLERY=full;window.GALLERY=full.slice();window.galMode='full';window.__fxGalleryReferenceCount=full.length}
   function wrapPools(){if(window.__aporroBusinessInstalled)return;window.__aporroBusinessInstalled=true;['galPoolFor','galPool'].forEach(function(name){var base=window[name];if(typeof base!=='function')return;window[name]=function(){var list=base.apply(this,arguments)||[];return list.filter(function(im){return matchesBusiness(im)})}})}
   function syncCategoryCount(){var all=window.ALL||[],watchCount=all.filter(function(p){return watch.test(sourceText(p))}).length,select=q('#fCat');if(!select)return;qa('option',select).forEach(function(o){if(String(o.value)==='腕表'||/^腕表\s*\(/.test(o.textContent)){o.value='腕表';o.textContent='腕表 ('+watchCount+')'}})}
@@ -6315,7 +6338,7 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
   // 旧版 renderGal 会在不同事件顺序下重复插入旧详情区；统一交给当前标准详情面板。
   function renderDetailPanel(){renderAporroDetailSafe()}
   function installDetailPanel(){if(window.__aporroDetailInstalled||typeof window.renderGal!=='function')return;window.__aporroDetailInstalled=true;var base=window.renderGal;window.renderGal=function(){var out=base.apply(this,arguments);setTimeout(renderDetailPanel,0);return out}}
-  function wrapRender(){if(window.__aporroRenderSync||typeof window.renderGallery!=='function')return;window.__aporroRenderSync=true;var base=window.renderGallery;window.renderGallery=function(){var out=base.apply(this,arguments);setTimeout(function(){syncCategoryCount();syncGalleryCount()},0);return out};var quality=window.updateQualityFilter;if(typeof quality==='function'){window.updateQualityFilter=function(){var out=quality.apply(this,arguments);setTimeout(syncGalleryCount,0);return out}}}
+  function wrapRender(){if(window.__aporroRenderSync||typeof window.renderGallery!=='function')return;window.__aporroRenderSync=true;var base=window.renderGallery;window.renderGallery=function(){var out=base.apply(this,arguments);setTimeout(function(){syncCategoryCount();syncGalleryCount();if(window.updateGalDlBtns)window.updateGalDlBtns()},0);return out};var quality=window.updateQualityFilter;if(typeof quality==='function'){window.updateQualityFilter=function(){var out=quality.apply(this,arguments);setTimeout(syncGalleryCount,0);return out}}}
   function installReliableNavigation(){
     if(window.__fxReliableNavigation)return;window.__fxReliableNavigation=true;
     function activate(name){
@@ -6352,9 +6375,10 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
       if(!chunk.length){grid.innerHTML='<div class="fx-empty">没有符合当前筛选条件的商品</div>';}else{chunk.forEach(function(im,i){grid.insertAdjacentHTML('beforeend',window.galleryCard(im,i))});}
       if(sentinel){sentinel.innerHTML='<div class="fx-gallery-page"><button type="button" data-gp="prev">上一页</button><span>第 '+page+' / '+pages+' 页 · 共 '+items.length+' 件</span><button type="button" data-gp="next">下一页</button></div>';var prev=q('[data-gp="prev"]',sentinel),next=q('[data-gp="next"]',sentinel);prev.disabled=page===1;next.disabled=page===pages;prev.onclick=function(){if(page>1){window._fxGalleryPage=page-1;window.renderGallery();window.scrollTo({top:q('#fxGallery').offsetTop-20,behavior:'smooth'})}};next.onclick=function(){if(page<pages){window._fxGalleryPage=page+1;window.renderGallery();window.scrollTo({top:q('#fxGallery').offsetTop-20,behavior:'smooth'})}}}
       if(typeof window.syncGalleryCount==='function')window.syncGalleryCount();
+      if(typeof window.updateGalDlBtns==='function')window.updateGalDlBtns();
     };
   }
-  function boot(){window.__fxLookupProduct=function(im){var all=window.ALL||[],url=im&&(im.url||im.u||im.href),name=im&&(im.alt||im.name||im.n),cache=window.__fxProductLookup;if(!cache||cache.source!==all){var byUrl=Object.create(null),byName=Object.create(null);all.forEach(function(p){if(p.url)byUrl[p.url]=p;if(p.name&&!byName[p.name])byName[p.name]=p});cache=window.__fxProductLookup={source:all,byUrl:byUrl,byName:byName}}return (url&&cache.byUrl[url])||(name&&cache.byName[name])||im||{}};window.openGal=openAporroDetail;installReliableNavigation();addControls();pruneGallerySource();wrapPools();installDetailPanel();wrapRender();repairGalleryCardClick();installFastPagedGallery();installGalleryPriceFilter();stopGalleryRotation();syncCategoryCount();if(window.renderStyleTabs)window.renderStyleTabs();if(window.renderGallery)window.renderGallery();setTimeout(function(){syncCategoryCount();syncGalleryCount();renderDetailPanel()},30)}
+  function boot(){window.__fxLookupProduct=function(im){var all=window.ALL||[],url=im&&(im.url||im.u||im.href),name=im&&(im.alt||im.name||im.n),cache=window.__fxProductLookup;if(!cache||cache.source!==all){var byUrl=Object.create(null),byName=Object.create(null);all.forEach(function(p){if(p.url)byUrl[p.url]=p;if(p.name&&!byName[p.name])byName[p.name]=p});cache=window.__fxProductLookup={source:all,byUrl:byUrl,byName:byName}}return (url&&cache.byUrl[url])||(name&&cache.byName[name])||im||{}};window.openGal=openAporroDetail;installReliableNavigation();addControls();pruneGallerySource();wrapPools();installDetailPanel();wrapRender();repairGalleryCardClick();installFastPagedGallery();installGalleryPriceFilter();stopGalleryRotation();syncCategoryCount();if(window.renderStyleTabs)window.renderStyleTabs();if(window.renderGallery)window.renderGallery();if(window.WB&&window.WB.ready)window.WB.ready(function(){if(window.renderGallery)window.renderGallery();if(window.updateGalDlBtns)window.updateGalDlBtns()});setTimeout(function(){syncCategoryCount();syncGalleryCount();renderDetailPanel()},30)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,1250)});else setTimeout(boot,1250);
 })();
 </script>
