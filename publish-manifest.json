@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-19T07:51:54.057Z",
+  "generatedAt": "2026-10-19T08:11:44.562Z",
   "release": "2026-10-19",
   "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_20261013批量预演审核版.html",
-  "sourceBytes": 196831103,
-  "sourceSha256": "fa7b6a67ff6fe91c2a4f7d82958bf4752fa775b3ad6c7105b0f7c0ac366e5376",
+  "sourceBytes": 196833665,
+  "sourceSha256": "d6313357da47b934109a4f671bc021699ab107679be3209a3e42b5425c65b785",
   "sites": 65,
   "products": 35923,
   "visionS": 58270,
@@ -257,8 +257,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 1336537,
-      "sha256": "5220abed00d0c5f17a2b6020db1da7f29d1bdfb94e201c281182b7f7c4e7ba56"
+      "bytes": 1339099,
+      "sha256": "2ea01611e3d7a5f5b3bef52126e8e713f6217c533810a9e01b3cbb4e39edfcd1"
     }
   ],
   "scriptsCompiled": 11,

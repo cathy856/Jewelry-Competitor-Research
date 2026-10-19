@@ -1163,6 +1163,11 @@ section,.section{background:transparent!important;border:0!important;border-radi
 @media(max-width:1400px){.fx-brand-pair{grid-template-columns:1fr!important}}
 </style>
 <script id="cached-product-images-20261019">window.WB_CACHED_IMAGE_URLS={"https://images.hbjo-online.com/webp/images/all/56bc649895e7b56b464a872451_officine-panerai-radiomir-1940-3-days-acciaio-pam00662.jpg":"media/product-cache/678c0e8c3b7669f2763bd3ab9ab23c8144c2e563e85820e13f1f774276c58c23.jpg","https://images.hbjo-online.com/webp/images/all/56c58b9dd3e8c56bf7a5e2ae65_officine-panerai-radiomir-1940-3-days-ceramica-pam00577.jpg":"media/product-cache/23904e4a29909dd676c41487d457fd0c794ed075b5f53e45dc5981cf2ed5c358.jpg","https://images.hbjo-online.com/webp/images/all/M25610TNL-0001.jpg":"media/product-cache/90fc3404dfb74f6714baab68ead42bdfc2cd5ec4ebfc3f898a33eebcdc3a1673.jpg","https://images.hbjo-online.com/webp/images/all/IW503401.jpg":"media/product-cache/a1d0eb29e8bd9314d32860a2ef02774b1a4f51c177ea3bcf83e6468eb5c0e44b.jpg","https://images.hbjo-online.com/webp/images/all/M79830RB-0003.jpg":"media/product-cache/f90e1822fb546a25392a7af124985f04c40ee39185ea991fc146a1a9616a5ad4.jpg","https://images.hbjo-online.com/webp/images/all/55d1a57d759b855cc9071b56ad_iwc-portugieser-calendrier-perpetuel-iw503302.jpg":"media/product-cache/4dc7f4d802cad14093576fd7948a48c9cb6b17c3d18c037cea5d2b31481079ac.jpg","https://images.hbjo-online.com/webp/images/all/montre-panerai-pam01441-luminor-gmt.jpg":"media/product-cache/5e56d0d9c249cb89a3187f2015ad7d9e2328341632972f63849066b4bad5d524.jpg","https://images.hbjo-online.com/webp/images/all/M35800-0001.jpg":"media/product-cache/55926583a80b5e964304002ddb874e134961e1846a16e20cdcd1461951170d72.jpg","https://images.hbjo-online.com/webp/images/all/M79230R-0012.jpg":"media/product-cache/81723acbdc5c66b968335f02423824e43b7b8812647acb7a2ecaffbfb3718615.jpg","https://images.hbjo-online.com/webp/images/all/54edd697e8a7154eb509a572ef_piaget-altiplano-or-rose-g0a39105.jpg":"media/product-cache/c1aa3c832e5dbd461a48e0f1df134c2a16aafb3f2bcc9fe880abe5368a2edbaa.jpg","https://images.hbjo-online.com/webp/images/all/546c749e1c1e25409cb18e7985_iwc-portofino-automatic-iw356504.jpg":"media/product-cache/2e676ee28cf6f54994e2d2fe66e953635c3a7c6e732cc7fbb2264cc94eab10cc.jpg","https://images.hbjo-online.com/webp/images/all/IW356501.jpg":"media/product-cache/62c43ce9c60b519b0926d481aafe312a6de7b0680e3653d9562ebc581a93b171.jpg","https://images.hbjo-online.com/webp/images/all/278573-3002.jpg":"media/product-cache/8258420563675cbb554d522ef020dabe853cc6bfc51786068e026540de484ebe.jpg","https://images.hbjo-online.com/webp/images/all/278559-3002.jpg":"media/product-cache/46daeee8b0d42ea9f2cfb5a489879a1074b61f6ea3eef09a260b066846194610.jpg","https://images.hbjo-online.com/webp/images/all/278559-3004.jpg":"media/product-cache/29a41656ec2ceb23f014643d7acead9657c39e22d8c7fca24a796b71f4320dae.jpg","https://images.hbjo-online.com/webp/images/all/278582-3001.jpg":"media/product-cache/701c33a2a07b71c6eae88a2ab674a8c4a8c44a69c32b02b0e041e52bc1292d72.jpg","https://images.hbjo-online.com/webp/images/all/274808-5012.jpg":"media/product-cache/8b6d021b4e8cf7197da32a5dcab18784be264f7b5302af5644063d7956269a70.jpg","https://images.hbjo-online.com/webp/images/all/543beccf6e907541864fa6fbe2_jaeger-lecoultre-master-grande-ultra-thin-1352502.jpg":"media/product-cache/7937c4697956dd348e8ef26d91e9f6682d61b9e70731ae8056141a0f02d7d059.jpg"};</script>
+<style id="gallery-image-recovery-20261019">
+.wb-gallery-image-loading{position:absolute;left:8px;top:36px;z-index:3;padding:3px 7px;border-radius:6px;background:rgba(255,255,255,.94);color:#56657b;font-size:11px;pointer-events:none}
+.wb-gallery-image-status{display:flex!important;align-items:center;justify-content:center;flex-direction:column;gap:8px;min-height:150px;color:#56657b;font-size:12px}
+.wb-gallery-image-status button{cursor:pointer;border:1px solid #bdcce1;border-radius:6px;padding:4px 10px;background:white;color:#193e6d}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -3215,6 +3220,36 @@ function wbTableImageFallback(el){
   placeholder.appendChild(retry);el.parentNode.replaceChild(placeholder,el);
 }
 
+// A slow image is still a live request. Only actual errors advance candidates.
+function wbGalleryImageFallback(el){
+  if(!el||!el.parentNode)return;
+  wbGalleryClearLoading(el);
+  var candidates=el.__wbGalleryCandidates;
+  if(!candidates){
+    var card=el.closest('.img-card'),idx=card&&Number(card.getAttribute('data-idx'));
+    var im=card&&(window.galList||[])[idx],first=el.getAttribute('src');
+    candidates=[first];
+    if(im)wbTableImageCandidates(im).forEach(function(u){if(u&&candidates.indexOf(u)<0&&candidates.length<4)candidates.push(u)});
+    el.__wbGalleryCandidates=candidates;el.__wbGalleryCandidateIndex=0;
+  }
+  var next=(el.__wbGalleryCandidateIndex||0)+1;
+  if(next<candidates.length){el.__wbGalleryCandidateIndex=next;el.__t=Date.now();el.src=candidates[next];return;}
+  var placeholder=document.createElement('div');placeholder.className='img-ph wb-gallery-image-status';
+  placeholder.appendChild(document.createTextNode('图片暂不可用'));
+  var button=document.createElement('button');button.type='button';button.textContent='重试';button.title='重新加载这件商品的图片';
+  button.onclick=function(event){event.stopPropagation();el.__wbGalleryCandidateIndex=0;el.__t=Date.now();el.loading='eager';placeholder.replaceWith(el);el.src=candidates[0];if(window.startImgWatch)startImgWatch()};
+  placeholder.appendChild(button);el.parentNode.replaceChild(placeholder,el);
+}
+function wbGalleryClearLoading(el){
+  if(el&&el.__wbLoadingHint){el.__wbLoadingHint.remove();el.__wbLoadingHint=null;}
+}
+function wbGalleryShowLoading(el){
+  if(!el||!el.parentNode||el.__wbLoadingHint)return;
+  var hint=document.createElement('span');hint.className='wb-gallery-image-loading';hint.textContent='图片加载较慢…';hint.setAttribute('role','status');
+  el.__wbLoadingHint=hint;el.parentNode.appendChild(hint);
+  el.addEventListener('load',function(){wbGalleryClearLoading(el)},{once:true});
+}
+
 function renderRows(rows){
   var tb = document.getElementById('ptBody');
   tb.innerHTML = '';
@@ -3795,6 +3830,7 @@ function galleryCard(im, idx){
 
 // 图片加载失败兜底：用占位卡替换，避免空白/破图
 function imgFallback(el){
+  if(el&&el.closest&&el.closest('.img-card'))return wbGalleryImageFallback(el);
   if(!el || el.__fb) return; el.__fb = true;
   var alt = el.getAttribute('alt') || el.getAttribute('title') || '商品图';
   var ph = document.createElement('div');
@@ -3819,7 +3855,7 @@ function startImgWatch(){
       if(r.bottom < -600 || r.top > vh + 600) return;
       if(!el.complete || el.naturalWidth===0){
         if(!el.__t) el.__t = Date.now();
-        if(Date.now() - el.__t > 15000){ imgFallback(el); } else { pending++; }
+        if(Date.now() - el.__t > 15000){ wbGalleryShowLoading(el); } else { pending++; }
       }
     });
     if(pending===0){ clearInterval(_imgWatchTimer); _imgWatchTimer = null; }
