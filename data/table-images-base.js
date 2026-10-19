@@ -1,0 +1,1 @@
+window.__PUB_TABLE_IMAGES__={};

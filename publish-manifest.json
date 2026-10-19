@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-19T01:28:38.279Z",
+  "generatedAt": "2026-10-19T07:15:34.949Z",
   "release": "2026-10-19",
   "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_20261013批量预演审核版.html",
-  "sourceBytes": 187166146,
-  "sourceSha256": "dbc04bed4ff56eb06b4916ea81f5e13a7adfefd16d0152211ba82e556024b09f",
+  "sourceBytes": 196827119,
+  "sourceSha256": "8020fd032018de5b1bf4c2924bff3ecccf78b84ce82e31201810835a189b7686",
   "sites": 65,
   "products": 35923,
   "visionS": 58270,
@@ -151,9 +151,24 @@
       "sha256": "f1bde29eeeba4f03cd24f7b4ffbb78ffc58708966e8e31436fa9389f63c95580"
     },
     {
+      "path": "data/table-images-base.js",
+      "bytes": 31,
+      "sha256": "f76ddcad2bebc257d125c72cf3e6c0d89190d28a0852d36105b0c9762894294f"
+    },
+    {
+      "path": "data/table-images-000.js",
+      "bytes": 8388571,
+      "sha256": "c9ef9f578ef2668453219599d08efb33a6c707857fe1ad8b70431371ba4e9bb1"
+    },
+    {
+      "path": "data/table-images-001.js",
+      "bytes": 1325483,
+      "sha256": "b4075f568c28f49d2c778b70e9e756ec6f0ff06bbfea4afbd918b7b3927b27df"
+    },
+    {
       "path": "index.html",
-      "bytes": 1325590,
-      "sha256": "47cd9e3bc6367b0c9820fa8e77c6c884db4bbb36f9b92929b1da43012f191148"
+      "bytes": 1332553,
+      "sha256": "7e5ad8a7ecdfc696071e384364b138f5827fdd568a804db44294fbcaa463fed2"
     }
   ],
   "scriptsCompiled": 10,

@@ -29,9 +29,12 @@
 <script src="data/vision-items-001.js"></script>
 <script src="data/vision-items-002.js"></script>
 <script src="data/vision-items-003.js"></script>
+<script src="data/table-images-base.js"></script>
+<script src="data/table-images-000.js"></script>
+<script src="data/table-images-001.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>57站竞品调研工作台 · 整体优化0923</title>
+<title>全球珠宝竞品调研工作台</title>
 <style>
   :root {
     --bg: #f8fafc;
@@ -1130,6 +1133,35 @@ section,.section{background:transparent!important;border:0!important;border-radi
 .v-clear-stars:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:800px){.v-version-list{grid-template-columns:1fr}.version-history{padding:14px}.fx-subtitle .v-subtitle-delta{font-size:13px!important}}
 </style>
+<style id="table-gallery-repair-20261019">#dataPanel .tbl-scroll{overflow-x:auto!important}
+#dataPanel table{width:100%!important;min-width:1320px!important;max-width:none!important;table-layout:fixed!important}
+#dataPanel th,#dataPanel td{box-sizing:border-box!important;display:table-cell!important;padding:10px 6px!important;vertical-align:middle!important;overflow:hidden!important;line-height:1.45!important}
+#dataPanel th{white-space:nowrap!important}
+#dataPanel th:nth-child(1),#dataPanel td:nth-child(1){width:4%!important}
+#dataPanel th:nth-child(2),#dataPanel td:nth-child(2){width:6%!important}
+#dataPanel th:nth-child(3),#dataPanel td:nth-child(3){width:7%!important}
+#dataPanel th:nth-child(4),#dataPanel td:nth-child(4){width:3%!important}
+#dataPanel th:nth-child(5),#dataPanel td:nth-child(5){width:6%!important}
+#dataPanel th:nth-child(6),#dataPanel td:nth-child(6){width:5%!important}
+#dataPanel th:nth-child(7),#dataPanel td:nth-child(7){width:15%!important}
+#dataPanel th:nth-child(8),#dataPanel td:nth-child(8){width:6%!important}
+#dataPanel th:nth-child(9),#dataPanel td:nth-child(9){width:6%!important;max-height:none!important}
+#dataPanel th:nth-child(10),#dataPanel td:nth-child(10){width:4%!important}
+#dataPanel th:nth-child(11),#dataPanel td:nth-child(11){width:11%!important}
+#dataPanel th:nth-child(12),#dataPanel td:nth-child(12){width:19%!important}
+#dataPanel th:nth-child(13),#dataPanel td:nth-child(13){width:8%!important;white-space:nowrap!important;font-variant-numeric:tabular-nums;color:#526985}
+#dataPanel td.nm a{-webkit-line-clamp:3!important;overflow-wrap:anywhere}
+#dataPanel .desc-prev{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;margin-bottom:5px}
+#dataPanel .cell-img,#dataPanel .img-ph{width:64px!important;height:64px!important;max-width:100%!important;max-height:64px!important;min-height:64px!important}
+#dataPanel .wb-image-status{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;font-size:10px!important;padding:3px!important;line-height:1.35}
+#dataPanel .wb-image-status button{font-size:10px;padding:1px 5px;cursor:pointer;border:1px solid #becbdd;border-radius:4px;background:#fff;color:#173f73}
+#dataPanel .fx-country-cell{white-space:normal!important}
+.fx-brand-box table{min-width:0!important;max-width:100%!important}
+.fx-brand-box th:nth-child(1){width:34%!important}.fx-brand-box th:nth-child(2){width:23%!important}.fx-brand-box th:nth-child(3){width:17%!important}.fx-brand-box th:nth-child(4){width:18%!important}.fx-brand-box th:nth-child(5){width:8%!important}
+.fx-brand-box td:first-child .v-badge{font-size:9px;padding:1px 4px;margin-left:4px}
+.fx-brand-box .fx-market-picker{display:block;max-width:100%}.fx-brand-box .fx-market-picker summary{min-width:0!important;width:100%;box-sizing:border-box;padding:7px 4px}
+@media(max-width:1400px){.fx-brand-pair{grid-template-columns:1fr!important}}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -1259,7 +1291,7 @@ section,.section{background:transparent!important;border:0!important;border-radi
           <option value="priceAsc">价格↑</option>
           <option value="priceDesc">价格↓</option>
           <option value="discDesc">折扣↓</option>
-          <option value="dateDesc">上新↓</option>
+          <option value="dateDesc">上架时间 ↓</option>
         </select>
         <button class="primary" id="btnFilter">筛选</button>
         <button id="btnReset">重置</button>
@@ -1744,7 +1776,7 @@ document.addEventListener('click', function(ev){
     var url = t.getAttribute('data-url');
     window.toggleStar(url);
     t.classList.toggle('on');
-    updateStarBar();
+    updateStarBar();if(window.updateGalDlBtns)window.updateGalDlBtns();
   }
   if(t.classList && t.classList.contains('wb-cmp')){
     var checked = qsa('.wb-cmp').filter(function(c){return c.checked;});
@@ -2082,7 +2114,7 @@ function exportMatches(){
   };
   function updateGalDlBtns(){
     var n=galPool().length;             // 当前筛选全量图片数（替代已渲染 galList，与下载全套行为一致）
-    var st=(window.galList||[]).filter(function(im){ return window.isStar(im.url); }).length;
+    var st=galPool().filter(function(im){ return window.isStar(im.url); }).length;
     var b1=document.getElementById('galDlBtn'); if(b1) b1.textContent='⬇ 下载全套 ('+n+')';
     var b2=document.getElementById('galStarDlBtn'); if(b2) b2.textContent='★ 星标ZIP ('+st+')';
   }
@@ -2708,12 +2740,9 @@ function buildToolbar(){
   minEl.addEventListener('input', syncFromSliders);
   maxEl.addEventListener('input', syncFromSliders);
   // 与原有数字输入框双向同步
-  if($('fMin')) $('fMin').addEventListener('input', function(){
-    var v=parseFloat(this.value); minEl.value = isNaN(v)?0:Math.min(PRICE_MAX,v); syncFromSliders();
-  });
-  if($('fMax')) $('fMax').addEventListener('input', function(){
-    var v=parseFloat(this.value); maxEl.value = isNaN(v)?PRICE_MAX:Math.min(PRICE_MAX,v); syncFromSliders();
-  });
+  function showTypedPriceRange(){var lo=$('fMin').value,hi=$('fMax').value;txt.textContent='$'+(lo===''?'0':lo)+' – $'+(hi===''?PRICE_MAX:hi)}
+  if($('fMin'))$('fMin').addEventListener('input',function(){var v=parseFloat(this.value);minEl.value=isNaN(v)?0:Math.max(0,Math.min(PRICE_MAX,v));showTypedPriceRange()});
+  if($('fMax'))$('fMax').addEventListener('input',function(){var v=parseFloat(this.value);maxEl.value=isNaN(v)?PRICE_MAX:Math.max(0,Math.min(PRICE_MAX,v));showTypedPriceRange()});
 
   // URL 解析入口
   var uEl=$('wbUrl');
@@ -3033,7 +3062,8 @@ function fmtCur(p){ var v=p.priceUSD; if(isNaN(v)||v==null) return '—'; var c=
 function medNum(a){ if(!a.length) return NaN; var b=a.slice().sort(function(x,y){return x-y;}); var m=b.length>>1; return b.length%2?b[m]:(b[m-1]+b[m])/2; }
 
 // ============ 状态 ============
-var state = { site:'', cat:'', style:'', type:'', q:'', min:'', max:'', sort:'def', page:1, per:20, starOnly:false };
+var state = { site:'', cat:'', style:'', type:'', q:'', min:'', max:'', sort:'dateDesc', page:1, per:20, starOnly:false };
+document.getElementById('fSort').value='dateDesc';
 
 // ============ 站点总览 ============
 function renderBrands(){
@@ -3130,7 +3160,7 @@ function applyFilter(){
     return va ? (b.priceUSD-a.priceUSD) : 0;
   });
   else if(state.sort==='discDesc') rows.sort(function(a,b){return (b.disc||0)-(a.disc||0);});
-  else if(state.sort==='dateDesc') rows.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+  else if(state.sort==='dateDesc'||state.sort==='def') rows.sort(function(a,b){var av=Date.parse(a.date),bv=Date.parse(b.date);return (isNaN(bv)?-Infinity:bv)-(isNaN(av)?-Infinity:av)||0;});
   var total = rows.length;
   var pages = Math.max(1, Math.ceil(total/state.per));
   if(state.page>pages) state.page=pages;
@@ -3142,6 +3172,40 @@ function applyFilter(){
   document.getElementById('pgInfo').textContent = total? (state.page+' / '+pages) : '—';
   renderPager(total, pages);
   window._curRows = rows;
+}
+
+window.WB_TABLE_IMAGE_FALLBACKS=window.__PUB_TABLE_IMAGES__;
+// Same-product image candidates only; never substitute another product or call a model.
+function wbTableImageURL(value){
+  value=String(value||'').trim().replace(/&amp;/g,'&');
+  if(value.indexOf('//')===0)value='https:'+value;
+  if(value.indexOf('http://')===0)value='https://'+value.slice(7);
+  return /^https:\/\//i.test(value)?value:'';
+}
+function wbTableThumb(value){
+  value=wbTableImageURL(value);if(!value)return '';
+  try{var u=new URL(value);if(u.hostname==='cdn.shopify.com')u.searchParams.set('width','160');return u.href}catch(e){return value}
+}
+function wbTableImageCandidates(p){
+  var raw=[p.img].concat((window.WB_TABLE_IMAGE_FALLBACKS||{})[p.url]||[]),out=[];
+  raw.forEach(function(value){var original=wbTableImageURL(value);if(!original)return;[wbTableThumb(original),original].forEach(function(u){if(u&&out.indexOf(u)<0&&out.length<4)out.push(u)})});
+  return out;
+}
+function wbTableImageHTML(p){
+  var urls=wbTableImageCandidates(p);
+  if(!urls.length)return '<div class="img-ph wb-image-status" title="现有源站资料和同商品缓存均无图片">源站未提供图片</div>';
+  return '<img class="cell-img" width="64" height="64" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+esc(urls[0])+'" alt="'+esc(p.name||'商品图片')+'" data-img-candidates="'+esc(JSON.stringify(urls))+'" data-img-index="0" data-pvimg="'+esc(wbTableImageURL(p.img)||urls[0])+'" data-name="'+esc(p.name_zh||p.name)+'" onclick="openImgPreviewData(this)" onerror="wbTableImageFallback(this)">';
+}
+function wbTableImageFallback(el){
+  if(!el||!el.parentNode)return;
+  var urls=[];try{urls=JSON.parse(el.getAttribute('data-img-candidates')||'[]')}catch(e){}
+  var index=Number(el.getAttribute('data-img-index')||0)+1;
+  if(index<urls.length){el.setAttribute('data-img-index',String(index));el.src=urls[index];return;}
+  var placeholder=document.createElement('div');placeholder.className='img-ph wb-image-status';
+  placeholder.appendChild(document.createTextNode('图片暂不可用'));
+  var retry=document.createElement('button');retry.type='button';retry.textContent='重试';retry.title='重新加载这件商品的原图';
+  retry.onclick=function(event){event.stopPropagation();el.setAttribute('data-img-index','0');el.src=urls[0];placeholder.replaceWith(el)};
+  placeholder.appendChild(retry);el.parentNode.replaceChild(placeholder,el);
 }
 
 function renderRows(rows){
@@ -3164,20 +3228,20 @@ function renderRows(rows){
       if(p.was && p.was>p.price && p.was/p.price>=0.5) native += ' <span class="was">'+sym+Number(p.was).toLocaleString('en-US',{maximumFractionDigits:0})+'</span>';
     }
     tb.insertAdjacentHTML('beforeend',
-      '<tr>'+
-      '<td class="mk">'+mkCell(p)+'</td>'+
-      '<td class="im"><img class="cell-img" loading="lazy" src="'+esc(p.img)+'" alt="'+esc(p.name)+'" data-pvimg="'+esc(p.img)+'" data-name="'+esc(p.name_cn||p.name)+'" onclick="openImgPreviewData(this)" onerror="imgFallback(this)"></td>'+
-      '<td class="nm"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name_cn || p.name)+'</a>'+
+      '<tr data-product-url="'+esc(p.url)+'">'+
+      '<td data-wb-col="star" class="mk">'+mkCell(p)+'</td>'+
+      '<td data-wb-col="image" class="im">'+wbTableImageHTML(p)+'</td>'+
+      '<td data-wb-col="name" class="nm"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name_cn || p.name)+'</a>'+
         '<div class="src">'+esc(p.domain)+'</div></td>'+
-      '<td class="cat"><b>'+esc(p.cat||'—')+'</b>'+(p.catRaw&&p.catRaw!==p.cat?'<div class="cd">'+esc(p.catRaw)+'</div>':'')+'</td>'+
-      '<td><span class="price">'+fmtUSD(p.priceUSD)+'</span></td>'+
-      '<td style="color:var(--sub)">'+native+'</td>'+
-      '<td><span class="disc '+discCls+'">'+discTxt+'</span></td>'+
-      '<td style="min-width:160px">'+tags+'</td>'+
-      '<td style="min-width:180px">'+detailCell(p, di)+'</td>'+
-      '<td style="color:var(--sub)">'+esc(p.date||'—')+'</td>'+
-      '<td>'+esc(domainShort(p.domain))+'</td>'+
-      '<td><a href="'+esc(p.url)+'" target="_blank" rel="noopener" style="color:var(--blue)">↗</a></td>'+
+      '<td data-wb-col="category" class="cat"><b>'+esc(p.cat||'—')+'</b>'+(p.catRaw&&p.catRaw!==p.cat?'<div class="cd">'+esc(p.catRaw)+'</div>':'')+'</td>'+
+      '<td data-wb-col="usd"><span class="price">'+fmtUSD(p.priceUSD)+'</span></td>'+
+      '<td data-wb-col="native" style="color:var(--sub)">'+native+'</td>'+
+      '<td data-wb-col="discount"><span class="disc '+discCls+'">'+discTxt+'</span></td>'+
+      '<td data-wb-col="tags" style="min-width:160px">'+tags+'</td>'+
+      '<td data-wb-col="details" style="min-width:180px">'+detailCell(p, di)+'</td>'+
+      '<td data-wb-col="date" class="wb-listed-at" title="源站商品上架时间">'+(p.date?'<time datetime="'+esc(p.date)+'">'+esc(String(p.date).slice(0,10))+'</time>':'<span title="源站未提供上架时间">—</span>')+'</td>'+
+      '<td data-wb-col="site">'+esc(domainShort(p.domain))+'</td>'+
+      '<td data-wb-col="link"><a href="'+esc(p.url)+'" target="_blank" rel="noopener" style="color:var(--blue)">↗</a></td>'+
       '</tr>');
   });
 }
@@ -4098,7 +4162,7 @@ document.getElementById('btnFilter').addEventListener('click', function(){
   state.cat=document.getElementById('fCat').value;
   state.style=document.getElementById('fStyle').value;
   state.type=document.getElementById('fType').value;
-  state.q=document.getElementById('fQ').value.trim();
+  state.q=(document.getElementById('wbQ')||document.getElementById('fQ')).value.trim();
   state.min=document.getElementById('fMin').value;
   state.max=document.getElementById('fMax').value;
   state.sort=document.getElementById('fSort').value;
@@ -4106,15 +4170,15 @@ document.getElementById('btnFilter').addEventListener('click', function(){
   applyFilter();
 });
 document.getElementById('btnReset').addEventListener('click', function(){
-  state={site:'',cat:'',style:'',type:'',q:'',min:'',max:'',sort:'def',page:1,per:20,starOnly:false};
+  state={site:'',cat:'',style:'',type:'',q:'',min:'',max:'',sort:'dateDesc',page:1,per:20,starOnly:false};
   document.getElementById('fSite').value='';
   document.getElementById('fCat').value='';
   document.getElementById('fStyle').value='';
   document.getElementById('fType').value='';
-  document.getElementById('fQ').value='';
+  document.getElementById('fQ').value='';if(document.getElementById('wbQ'))document.getElementById('wbQ').value='';
   document.getElementById('fMin').value='';
   document.getElementById('fMax').value='';
-  document.getElementById('fSort').value='def';
+  document.getElementById('fSort').value='dateDesc';
   applyFilter();
 });
 document.getElementById('fQ').addEventListener('keydown', function(e){ if(e.key==='Enter') document.getElementById('btnFilter').click(); });
@@ -4438,7 +4502,7 @@ function pidOf(p){
 }
 function loadLLMCfg(){ try{ return JSON.parse(localStorage.getItem('wb_llm')||'{}'); }catch(e){ return {}; } }
 function resetState(){
-  state = { site:'', cat:'', style:'', type:'', q:'', min:'', max:'', sort:'def', page:1, per:20, starOnly:false };
+  state = { site:'', cat:'', style:'', type:'', q:'', min:'', max:'', sort:'dateDesc', page:1, per:20, starOnly:false };
   galVal = '全部'; galSite = ''; galQ=''; galCat=''; galMin=''; galMax=''; galStar=false;
   var gel;
   gel=document.getElementById('galQ');    if(gel) gel.value='';
@@ -6178,7 +6242,16 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
   }
   function installTableCompact(){
     var base=window.renderRows;if(!base||base._fx0918)return;
-    function simpleRows(rows){window._fxRows=rows||[];base.apply(this,arguments);var head=q('#dataPanel table thead tr');if(head)head.innerHTML=['标记','国家','来源站','链接','商品品类','图','品名','价格(USD)','原生价','折扣','标签说明','详细介绍','上架时间'].map(function(label){return '<th>'+label+'</th>'}).join('');qa('#ptBody tr').forEach(function(tr,i){var p=(rows||[])[i],cells=Array.prototype.slice.call(tr.children);if(!p||cells.length<13)return;var country=document.createElement('td');country.className='fx-country-cell '+(siteCountry(p.domain||p.d)==='日本'?'jp':'other');country.textContent=siteCountry(p.domain||p.d);var ordered=[cells[0],country,cells[11],cells[12],cells[3],cells[1],cells[2],cells[5],cells[6],cells[7],cells[8],cells[9],cells[10]];tr.innerHTML='';ordered.forEach(function(cell){tr.appendChild(cell)});tr.dataset.fxReordered='1'})}
+    function simpleRows(rows){
+      window._fxRows=rows||[];base.apply(this,arguments);
+      var columns=[['star','标记'],['country','国家'],['site','来源站'],['link','链接'],['category','商品品类'],['image','图'],['name','品名'],['usd','价格(USD)'],['native','原生价'],['discount','折扣'],['tags','标签说明'],['details','详细介绍'],['date','上架时间']];
+      var head=q('#dataPanel table thead tr');if(head)head.innerHTML=columns.map(function(c){return '<th data-wb-col="'+c[0]+'">'+c[1]+'</th>'}).join('');
+      qa('#ptBody tr').forEach(function(tr,i){
+        var p=(rows||[])[i];if(!p)return;var cells={};Array.prototype.forEach.call(tr.children,function(cell){if(cell.dataset.wbCol)cells[cell.dataset.wbCol]=cell});
+        if(!cells.country){var country=document.createElement('td');country.dataset.wbCol='country';country.className='fx-country-cell '+(siteCountry(p.domain||p.d)==='日本'?'jp':'other');country.textContent=siteCountry(p.domain||p.d);cells.country=country}
+        tr.innerHTML='';columns.forEach(function(c){if(cells[c[0]])tr.appendChild(cells[c[0]])});tr.dataset.fxReordered='1';
+      });
+    }
     simpleRows._fx0918=true;window.renderRows=simpleRows;
   }
   function siteCountry(domain){
@@ -6251,7 +6324,7 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
     var dimRow=document.createElement('div');dimRow.className='fx-dimension-row';['cat','material','structure','craft','style','theme'].forEach(function(key){buttons.filter(function(b){return b.dataset.dim===key}).forEach(function(b){dimRow.appendChild(b)})});sw.innerHTML='';sw.appendChild(confRow);sw.appendChild(dimRow);
   }
   function installGalleryPager(){
-    var base=window.renderGallery;if(!base||base._fx0918)return;
+    var base=window.renderGallery;if(window.__fxFastPagedGallery||!base||base._fx0918)return;
     window.setupGalObserver=function(){};window.renderMore=function(){paintGalleryPage()};window._fxGalleryPage=1;
     function wrapped(){window._fxGalleryPage=1;return base.apply(this,arguments)}
     wrapped._fx0918=true;window.renderGallery=wrapped;
@@ -6385,6 +6458,7 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
       if(typeof window.readGalFilters==='function')window.readGalFilters();
       grid.className='gal-grid grid'+(window.galPure?' pure':'');
       var pool=typeof window.galPool==='function'?window.galPool():[];
+      var filterKey=JSON.stringify([window.galSite,window.galCat,window.galQ,window.galMin,window.galMax,window.galStar,window.galSort,window.galDim,window.galVal,window.galSelected,window.galQuality,window.__fxCountry,window.__wbGalleryNewOnly]);if(window.__fxGalleryFilterKey!==undefined&&window.__fxGalleryFilterKey!==filterKey)window._fxGalleryPage=1;window.__fxGalleryFilterKey=filterKey;
       var selected=window.galVal||'全部',items=selected==='全部'?pool.slice():pool.filter(function(im){return window.dimVal(im)===selected});
       if(typeof window.sortItems==='function')window.sortItems(items);
       var per=24,pages=Math.max(1,Math.ceil(items.length/per)),page=Math.min(window._fxGalleryPage||1,pages),start=(page-1)*per,chunk=items.slice(start,start+per);
@@ -6393,7 +6467,7 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
       grid.innerHTML='';
       if(!chunk.length){grid.innerHTML='<div class="fx-empty">没有符合当前筛选条件的商品</div>';}else{chunk.forEach(function(im,i){grid.insertAdjacentHTML('beforeend',window.galleryCard(im,i))});}
       if(sentinel){sentinel.innerHTML='<div class="fx-gallery-page"><button type="button" data-gp="prev">上一页</button><span>第 '+page+' / '+pages+' 页 · 共 '+items.length+' 件</span><button type="button" data-gp="next">下一页</button></div>';var prev=q('[data-gp="prev"]',sentinel),next=q('[data-gp="next"]',sentinel);prev.disabled=page===1;next.disabled=page===pages;prev.onclick=function(){if(page>1){window._fxGalleryPage=page-1;window.renderGallery();window.scrollTo({top:q('#fxGallery').offsetTop-20,behavior:'smooth'})}};next.onclick=function(){if(page<pages){window._fxGalleryPage=page+1;window.renderGallery();window.scrollTo({top:q('#fxGallery').offsetTop-20,behavior:'smooth'})}}}
-      if(typeof window.syncGalleryCount==='function')window.syncGalleryCount();
+      if(typeof window.syncGalleryCount==='function')window.syncGalleryCount();if(window.updateGalDlBtns)window.updateGalDlBtns();
     };
   }
   function boot(){window.__fxLookupProduct=function(im){var all=window.ALL||[],url=im&&(im.url||im.u||im.href),name=im&&(im.alt||im.name||im.n),cache=window.__fxProductLookup;if(!cache||cache.source!==all){var byUrl=Object.create(null),byName=Object.create(null);all.forEach(function(p){if(p.url)byUrl[p.url]=p;if(p.name&&!byName[p.name])byName[p.name]=p});cache=window.__fxProductLookup={source:all,byUrl:byUrl,byName:byName}}return (url&&cache.byUrl[url])||(name&&cache.byName[name])||im||{}};window.openGal=openAporroDetail;installReliableNavigation();addControls();pruneGallerySource();wrapPools();installDetailPanel();wrapRender();repairGalleryCardClick();installFastPagedGallery();installGalleryPriceFilter();stopGalleryRotation();syncCategoryCount();if(window.renderStyleTabs)window.renderStyleTabs();if(window.renderGallery)window.renderGallery();setTimeout(function(){syncCategoryCount();syncGalleryCount();renderDetailPanel()},30)}
