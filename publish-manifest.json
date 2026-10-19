@@ -1,75 +1,161 @@
 {
-  "generatedAt": "2026-09-29T00:50:10.907Z",
-  "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_整体优化0923.html",
-  "sourceBytes": 101691986,
-  "products": 27202,
-  "sites": 57,
-  "visionS": 40480,
-  "visionItems": 25365,
+  "generatedAt": "2026-10-19T01:28:38.279Z",
+  "release": "2026-10-19",
+  "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_20261013批量预演审核版.html",
+  "sourceBytes": 187166146,
+  "sourceSha256": "dbc04bed4ff56eb06b4916ea81f5e13a7adfefd16d0152211ba82e556024b09f",
+  "sites": 65,
+  "products": 35923,
+  "visionS": 58270,
+  "visionItems": 34260,
+  "newProductsVsFirstVersion": 8721,
   "files": [
     {
       "path": "data/registry-base.js",
-      "bytes": 54144
+      "bytes": 86458,
+      "sha256": "9efd8c8f0fe5c215fb55b6b1e649c120cebe8636c13dc13c64d070eb60289a8c"
     },
     {
-      "path": "data/registry-00.js",
-      "bytes": 5026272
+      "path": "data/registry-000.js",
+      "bytes": 5103446,
+      "sha256": "d85424da0a4154df8342e5ca7ab182acc15814298c8792871665f2c520af09e0"
     },
     {
-      "path": "data/registry-01.js",
-      "bytes": 9631745
+      "path": "data/registry-001.js",
+      "bytes": 8077165,
+      "sha256": "b4c590ee4d548d32d1d36c90b46dc29a5946c4dda2f4266bcd16795effebc59e"
     },
     {
-      "path": "data/registry-02.js",
-      "bytes": 10390511
+      "path": "data/registry-002.js",
+      "bytes": 7797826,
+      "sha256": "b195af4ef476ecc1295534a43cdbff46d11130bd137a04f5440928d81e71c974"
     },
     {
-      "path": "data/registry-03.js",
-      "bytes": 6804735
+      "path": "data/registry-003.js",
+      "bytes": 6855425,
+      "sha256": "7df3230a7ba3fb65a43250cca2829a8f61e5967d7cc68c454698f330660cd46f"
     },
     {
-      "path": "data/registry-04.js",
-      "bytes": 10097339
+      "path": "data/registry-004.js",
+      "bytes": 6098590,
+      "sha256": "314124ee2e5f1855ccea63b2f52d5d73a2cb96fbef80fab2920972d5615e573e"
     },
     {
-      "path": "data/registry-05.js",
-      "bytes": 10379731
+      "path": "data/registry-005.js",
+      "bytes": 7573967,
+      "sha256": "7c44d0ecf3c8333a9459dc7e6de89353da1c4502d5be0b791489536a4fb29122"
     },
     {
-      "path": "data/registry-06.js",
-      "bytes": 7253202
+      "path": "data/registry-006.js",
+      "bytes": 7950776,
+      "sha256": "b167a08a94967a0a38ea18e94d6e3697503644e74953f52a87d2a4f46139e343"
     },
     {
-      "path": "data/registry-07.js",
-      "bytes": 9519731
+      "path": "data/registry-007.js",
+      "bytes": 1677447,
+      "sha256": "d5e1da9f7295c6654b10ef81cc01ec5de6048e4e266aa29b20d2290d42bb3d57"
+    },
+    {
+      "path": "data/registry-008.js",
+      "bytes": 8384322,
+      "sha256": "90d1f95acb168501daee84e5f4f5d2d8863a9cca56c22e5b3475f63a69c2c708"
+    },
+    {
+      "path": "data/registry-009.js",
+      "bytes": 8387389,
+      "sha256": "479105d6224ae0afa45f78151c5f4aa94bff80a7876d8002073d0f4045792598"
+    },
+    {
+      "path": "data/registry-010.js",
+      "bytes": 7353269,
+      "sha256": "ba19fa7bbf0b058a9aec39cc1e5c8a8fbda9b2b604017b98310b0be52a232369"
+    },
+    {
+      "path": "data/registry-011.js",
+      "bytes": 8239560,
+      "sha256": "8433529522233e70396f9f67c7c06f5f2e8d9b6b17cc3bb73d537520e3517cc2"
+    },
+    {
+      "path": "data/registry-012.js",
+      "bytes": 5950817,
+      "sha256": "1c21e8cba14162a38e252e32dc0f879cb4800684a57a176de0c9507f1e73d6f3"
+    },
+    {
+      "path": "data/registry-013.js",
+      "bytes": 8150294,
+      "sha256": "49711d5c00457bc24250dd79d4caf22b59159c671ff647508cca5688dc0a7bbb"
+    },
+    {
+      "path": "data/registry-014.js",
+      "bytes": 8263756,
+      "sha256": "cbe38950dced13cbd457044d743ac60a9194a0f0e16b0f6a303cc768d680c546"
+    },
+    {
+      "path": "data/registry-015.js",
+      "bytes": 4266607,
+      "sha256": "ce27c72ccb2cee453bb42e594934c98c5bf6edb719eb4ee08e9bc34afc893d03"
+    },
+    {
+      "path": "data/registry-016.js",
+      "bytes": 8383714,
+      "sha256": "cfb71389c66c00ebefa3e89b0c9784fac05c53dba76fbd477a7be44752ec5dce"
+    },
+    {
+      "path": "data/registry-017.js",
+      "bytes": 8382998,
+      "sha256": "498ede12d9f9371028ed6b1d3bcfc83bbe08a26ff5ef4470640c286a56a50ae8"
+    },
+    {
+      "path": "data/registry-018.js",
+      "bytes": 6002902,
+      "sha256": "2cf5a3716c0cfa1eb0abe9e3c2e37d8040b5d6b9bf231f212c53b5f263876285"
     },
     {
       "path": "data/vision-base.js",
-      "bytes": 15662
+      "bytes": 17489,
+      "sha256": "1bdf1bdc7e4da89afe71dad5d443c0053ca5a87e71103d661f226a12338d6882"
     },
     {
-      "path": "data/vision-s-00.js",
-      "bytes": 10484428
+      "path": "data/vision-s-000.js",
+      "bytes": 8387351,
+      "sha256": "7df7223cb178e2b4a9a5b52717116ca2f555ebb1c3c6fbc94c634ba87cc60d1c"
     },
     {
-      "path": "data/vision-s-01.js",
-      "bytes": 454726
+      "path": "data/vision-s-001.js",
+      "bytes": 8387828,
+      "sha256": "ce71f16e148119a4a648477c2de4703faab5cee1b34c48669f3049a28420476b"
     },
     {
-      "path": "data/vision-items-00.js",
-      "bytes": 10485161
+      "path": "data/vision-s-002.js",
+      "bytes": 7141861,
+      "sha256": "d960c02bcab5b2a8be3317faa35b3cb1c12cf36fbc09d6dc9a74b795bf630fda"
     },
     {
-      "path": "data/vision-items-01.js",
-      "bytes": 10485448
+      "path": "data/vision-items-000.js",
+      "bytes": 8387999,
+      "sha256": "772126a4f4807192f958f50db5ab7969c3fddbf902b4b8c043749a7baecb047a"
     },
     {
-      "path": "data/vision-items-02.js",
-      "bytes": 149075
+      "path": "data/vision-items-001.js",
+      "bytes": 8388177,
+      "sha256": "cc2328f4de31fe9e45304d47899d80cd254a086e69e495128673a635a5b0afde"
+    },
+    {
+      "path": "data/vision-items-002.js",
+      "bytes": 8387805,
+      "sha256": "294555bc844bd200ff1afcfc1d995175463c92834358213a4a22d838d5fb5244"
+    },
+    {
+      "path": "data/vision-items-003.js",
+      "bytes": 3668582,
+      "sha256": "f1bde29eeeba4f03cd24f7b4ffbb78ffc58708966e8e31436fa9389f63c95580"
     },
     {
       "path": "index.html",
-      "bytes": 464701
+      "bytes": 1325590,
+      "sha256": "47cd9e3bc6367b0c9820fa8e77c6c884db4bbb36f9b92929b1da43012f191148"
     }
-  ]
+  ],
+  "scriptsCompiled": 10,
+  "exactDataRoundTrip": true
 }
