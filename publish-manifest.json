@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-19T07:15:34.949Z",
+  "generatedAt": "2026-10-19T07:51:54.057Z",
   "release": "2026-10-19",
   "source": "D:\\日常文件fan\\产品组需求\\AI竞品调研\\第一版工作台\\优化版输出\\0920优化\\全球珠宝竞品调研工作台_20261013批量预演审核版.html",
-  "sourceBytes": 196827119,
-  "sourceSha256": "8020fd032018de5b1bf4c2924bff3ecccf78b84ce82e31201810835a189b7686",
+  "sourceBytes": 196831103,
+  "sourceSha256": "fa7b6a67ff6fe91c2a4f7d82958bf4752fa775b3ad6c7105b0f7c0ac366e5376",
   "sites": 65,
   "products": 35923,
   "visionS": 58270,
@@ -166,11 +166,101 @@
       "sha256": "b4075f568c28f49d2c778b70e9e756ec6f0ff06bbfea4afbd918b7b3927b27df"
     },
     {
+      "path": "media/product-cache/678c0e8c3b7669f2763bd3ab9ab23c8144c2e563e85820e13f1f774276c58c23.jpg",
+      "bytes": 96251,
+      "sha256": "678c0e8c3b7669f2763bd3ab9ab23c8144c2e563e85820e13f1f774276c58c23"
+    },
+    {
+      "path": "media/product-cache/23904e4a29909dd676c41487d457fd0c794ed075b5f53e45dc5981cf2ed5c358.jpg",
+      "bytes": 91130,
+      "sha256": "23904e4a29909dd676c41487d457fd0c794ed075b5f53e45dc5981cf2ed5c358"
+    },
+    {
+      "path": "media/product-cache/90fc3404dfb74f6714baab68ead42bdfc2cd5ec4ebfc3f898a33eebcdc3a1673.jpg",
+      "bytes": 178227,
+      "sha256": "90fc3404dfb74f6714baab68ead42bdfc2cd5ec4ebfc3f898a33eebcdc3a1673"
+    },
+    {
+      "path": "media/product-cache/a1d0eb29e8bd9314d32860a2ef02774b1a4f51c177ea3bcf83e6468eb5c0e44b.jpg",
+      "bytes": 211778,
+      "sha256": "a1d0eb29e8bd9314d32860a2ef02774b1a4f51c177ea3bcf83e6468eb5c0e44b"
+    },
+    {
+      "path": "media/product-cache/f90e1822fb546a25392a7af124985f04c40ee39185ea991fc146a1a9616a5ad4.jpg",
+      "bytes": 297290,
+      "sha256": "f90e1822fb546a25392a7af124985f04c40ee39185ea991fc146a1a9616a5ad4"
+    },
+    {
+      "path": "media/product-cache/4dc7f4d802cad14093576fd7948a48c9cb6b17c3d18c037cea5d2b31481079ac.jpg",
+      "bytes": 193727,
+      "sha256": "4dc7f4d802cad14093576fd7948a48c9cb6b17c3d18c037cea5d2b31481079ac"
+    },
+    {
+      "path": "media/product-cache/5e56d0d9c249cb89a3187f2015ad7d9e2328341632972f63849066b4bad5d524.jpg",
+      "bytes": 102844,
+      "sha256": "5e56d0d9c249cb89a3187f2015ad7d9e2328341632972f63849066b4bad5d524"
+    },
+    {
+      "path": "media/product-cache/55926583a80b5e964304002ddb874e134961e1846a16e20cdcd1461951170d72.jpg",
+      "bytes": 165102,
+      "sha256": "55926583a80b5e964304002ddb874e134961e1846a16e20cdcd1461951170d72"
+    },
+    {
+      "path": "media/product-cache/81723acbdc5c66b968335f02423824e43b7b8812647acb7a2ecaffbfb3718615.jpg",
+      "bytes": 106595,
+      "sha256": "81723acbdc5c66b968335f02423824e43b7b8812647acb7a2ecaffbfb3718615"
+    },
+    {
+      "path": "media/product-cache/c1aa3c832e5dbd461a48e0f1df134c2a16aafb3f2bcc9fe880abe5368a2edbaa.jpg",
+      "bytes": 18346,
+      "sha256": "c1aa3c832e5dbd461a48e0f1df134c2a16aafb3f2bcc9fe880abe5368a2edbaa"
+    },
+    {
+      "path": "media/product-cache/2e676ee28cf6f54994e2d2fe66e953635c3a7c6e732cc7fbb2264cc94eab10cc.jpg",
+      "bytes": 38606,
+      "sha256": "2e676ee28cf6f54994e2d2fe66e953635c3a7c6e732cc7fbb2264cc94eab10cc"
+    },
+    {
+      "path": "media/product-cache/62c43ce9c60b519b0926d481aafe312a6de7b0680e3653d9562ebc581a93b171.jpg",
+      "bytes": 164930,
+      "sha256": "62c43ce9c60b519b0926d481aafe312a6de7b0680e3653d9562ebc581a93b171"
+    },
+    {
+      "path": "media/product-cache/8258420563675cbb554d522ef020dabe853cc6bfc51786068e026540de484ebe.jpg",
+      "bytes": 48954,
+      "sha256": "8258420563675cbb554d522ef020dabe853cc6bfc51786068e026540de484ebe"
+    },
+    {
+      "path": "media/product-cache/46daeee8b0d42ea9f2cfb5a489879a1074b61f6ea3eef09a260b066846194610.jpg",
+      "bytes": 57871,
+      "sha256": "46daeee8b0d42ea9f2cfb5a489879a1074b61f6ea3eef09a260b066846194610"
+    },
+    {
+      "path": "media/product-cache/29a41656ec2ceb23f014643d7acead9657c39e22d8c7fca24a796b71f4320dae.jpg",
+      "bytes": 64790,
+      "sha256": "29a41656ec2ceb23f014643d7acead9657c39e22d8c7fca24a796b71f4320dae"
+    },
+    {
+      "path": "media/product-cache/701c33a2a07b71c6eae88a2ab674a8c4a8c44a69c32b02b0e041e52bc1292d72.jpg",
+      "bytes": 123779,
+      "sha256": "701c33a2a07b71c6eae88a2ab674a8c4a8c44a69c32b02b0e041e52bc1292d72"
+    },
+    {
+      "path": "media/product-cache/8b6d021b4e8cf7197da32a5dcab18784be264f7b5302af5644063d7956269a70.jpg",
+      "bytes": 98943,
+      "sha256": "8b6d021b4e8cf7197da32a5dcab18784be264f7b5302af5644063d7956269a70"
+    },
+    {
+      "path": "media/product-cache/7937c4697956dd348e8ef26d91e9f6682d61b9e70731ae8056141a0f02d7d059.jpg",
+      "bytes": 31508,
+      "sha256": "7937c4697956dd348e8ef26d91e9f6682d61b9e70731ae8056141a0f02d7d059"
+    },
+    {
       "path": "index.html",
-      "bytes": 1332553,
-      "sha256": "7e5ad8a7ecdfc696071e384364b138f5827fdd568a804db44294fbcaa463fed2"
+      "bytes": 1336537,
+      "sha256": "5220abed00d0c5f17a2b6020db1da7f29d1bdfb94e201c281182b7f7c4e7ba56"
     }
   ],
-  "scriptsCompiled": 10,
+  "scriptsCompiled": 11,
   "exactDataRoundTrip": true
 }
