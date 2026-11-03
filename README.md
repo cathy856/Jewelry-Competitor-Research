@@ -1,6 +1,6 @@
 # Jewelry-Competitor-Research
 
-65 站珠宝竞品调研工作台的静态发布文件。页面入口为 `index.html`，商品与视觉分类数据位于 `data/`，以小文件拆分以便上传和更新。
+69 站珠宝竞品调研工作台的静态发布文件。页面入口为 `index.html`，商品与视觉分类数据位于 `data/`，以小文件拆分以便上传和更新。
 
 GitHub Pages 发布来源为仓库 `Settings → Pages → Build and deployment → Source → GitHub Actions`。推送到 `main` 后，仓库内的部署工作流会自动运行；部署成功后访问 <https://cathy856.github.io/Jewelry-Competitor-Research/>。
 
@@ -13,3 +13,5 @@ GitHub Pages 发布来源为仓库 `Settings → Pages → Build and deployment 
 同日补充：以原视觉验收记录及图片SHA逐项核实，恢复18件商品对应的18张原始公开照片作为本站备用图，不扩大商品范围、不改变图片。发布前61项浏览器检查通过。
 
 同日最终修复：加载超过15秒的图片继续保留请求并提示加载中；实际失败仅尝试同商品备用图片，最多4个候选，耗尽后提供重试。补充真实慢图与404专项验证，最终本地66项浏览器检查通过。
+
+2026-11-03 发布 11 月 2 日增量审核结果。覆盖 69 站、38,562 件商品，较上一版新增 4 站、2,639 件商品。图片墙详情标题上方统一显示站点名。
