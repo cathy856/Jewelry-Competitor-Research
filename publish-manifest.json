@@ -282,11 +282,119 @@
       "sha256": "7937c4697956dd348e8ef26d91e9f6682d61b9e70731ae8056141a0f02d7d059"
     },
     {
+      "path": "data/startup/2d580370ee274debf12d-br.bin",
+      "bytes": 2435011,
+      "sha256": "2d580370ee274debf12d5e428e7415cb596d616056a774d9fb40ca8da462a852"
+    },
+    {
+      "path": "data/startup/e3d4fda7ff9a3c1a09c1-gzip.bin",
+      "bytes": 4006678,
+      "sha256": "e3d4fda7ff9a3c1a09c160bc63e242880a4aab8b112b375bcb82650056026a54"
+    },
+    {
+      "path": "data/startup/06896fc92a59823eec06-br.bin",
+      "bytes": 2144840,
+      "sha256": "06896fc92a59823eec06526d89c4a6a118000f187f772bbb2ba2dbc8ed74b10f"
+    },
+    {
+      "path": "data/startup/31d410692e9386961817-gzip.bin",
+      "bytes": 3826250,
+      "sha256": "31d410692e93869618179f06677d712f7e765ae3295e2fc1856aea33877fc32d"
+    },
+    {
+      "path": "data/startup/c5c7ce60461984b0ebcc-br.bin",
+      "bytes": 2295328,
+      "sha256": "c5c7ce60461984b0ebccde039234afe08ab70f76c47e8708bdc2758e615da32c"
+    },
+    {
+      "path": "data/startup/f956fe4da9673788d244-gzip.bin",
+      "bytes": 3608542,
+      "sha256": "f956fe4da9673788d244543aea0ce4d98d170639917353b6bededeacb41d8442"
+    },
+    {
+      "path": "data/startup/68ca61d61fa447565669-br.bin",
+      "bytes": 2616685,
+      "sha256": "68ca61d61fa4475656696f94d2b0a927e36bd43f60921fff6145634851185e90"
+    },
+    {
+      "path": "data/startup/bca3c034ce7053d0a7cd-gzip.bin",
+      "bytes": 4239635,
+      "sha256": "bca3c034ce7053d0a7cd2df24003107958633caa460cf040621b685d0b762628"
+    },
+    {
+      "path": "data/startup/173ddbd8280822a1e2bc-br.bin",
+      "bytes": 1157471,
+      "sha256": "173ddbd8280822a1e2bc2bef6a2305c12360520a4bde3b0c2da072d389334a8f"
+    },
+    {
+      "path": "data/startup/6325f62b0c4720d48f2a-gzip.bin",
+      "bytes": 2360076,
+      "sha256": "6325f62b0c4720d48f2ae7c0c4b12fa58cb89cdd2169085a03b1aedb2f3eb859"
+    },
+    {
+      "path": "data/startup/c70fb8722098a09e755f-br.bin",
+      "bytes": 2807330,
+      "sha256": "c70fb8722098a09e755fb64678345bdbb52407269a87567cab96523160b1f162"
+    },
+    {
+      "path": "data/startup/9c28f186d7c39220e3b0-gzip.bin",
+      "bytes": 4514974,
+      "sha256": "9c28f186d7c39220e3b0b8b6cdbd47b6da1ea4b1492ff93ca044e4356eb7946b"
+    },
+    {
+      "path": "data/startup/ba3368842132e5e11a5e-br.bin",
+      "bytes": 2605322,
+      "sha256": "ba3368842132e5e11a5e7494b9cc5d6358831a31e33c18f63f5bcaa87dda3c0c"
+    },
+    {
+      "path": "data/startup/0057e666f09da1ad4bf3-gzip.bin",
+      "bytes": 3376740,
+      "sha256": "0057e666f09da1ad4bf3632cacf728a76e715377f728cc7658a6d9a211bbc338"
+    },
+    {
+      "path": "data/startup/00e550b04008708ec615-br.bin",
+      "bytes": 1262073,
+      "sha256": "00e550b04008708ec6158464af30ad2103525577949c3729eba23430548aa9b3"
+    },
+    {
+      "path": "data/startup/1cb7d7705044ca42a3e5-gzip.bin",
+      "bytes": 1367441,
+      "sha256": "1cb7d7705044ca42a3e531410a09253245c4c329561c9ac57d8eea3bf07b7345"
+    },
+    {
+      "path": "data/startup/brotli-wasm-3.0.1/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "data/startup/brotli-wasm-3.0.1/index.web.js",
+      "bytes": 597,
+      "sha256": "21dfee1fe29350cd3315a300b6e08cb1ba6b5a505fcefaaee939482ee2211794"
+    },
+    {
+      "path": "data/startup/brotli-wasm-3.0.1/pkg.web/brotli_wasm.js",
+      "bytes": 14343,
+      "sha256": "cd7c6ad22230d9ad5618f4bc5b1a032677a18bcc9c7abecba6d5439beff031bc"
+    },
+    {
+      "path": "data/startup/brotli-wasm-3.0.1/pkg.web/brotli_wasm_bg.wasm",
+      "bytes": 1056860,
+      "sha256": "9ef0a025046bf7d87b7cdb8eac3f73a5c8fea2f1adb848cc9768345573fcd8a9"
+    },
+    {
       "path": "index.html",
-      "bytes": 735268,
-      "sha256": "889eb2de18e3a50618a4111051534a2b449bac7ca6a8698dc36b48d54131df77"
+      "bytes": 745116,
+      "sha256": "5b173f6f2502f7ede5c3d8cc97f89bd11a369559b2805a7173c1fb6fc43a4a63"
     }
   ],
   "scriptsCompiled": 11,
-  "exactDataRoundTrip": true
+  "exactDataRoundTrip": true,
+  "startup": {
+    "version": "9579ade0214a1e8ad664",
+    "sourceScripts": 36,
+    "blocks": 8,
+    "decodedBytes": 215006187,
+    "brotliBytes": 17324060,
+    "gzipBytes": 27300336
+  }
 }
