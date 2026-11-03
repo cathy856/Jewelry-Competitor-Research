@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<script src="data/registry-base-20261103.js"></script>
+<script src="data/registry-base-20261103-market.js"></script>
 <script src="data/registry-000-20261103.js"></script>
 <script src="data/registry-001-20261103.js"></script>
 <script src="data/registry-002-20261103.js"></script>
@@ -6283,8 +6283,13 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
       if(note)note.style.display='';
       var jp=[],other=[];window.SITES.forEach(function(s){(/日本|japan|(^|\/)jp(\/|$)/i.test(String(s.region||''))?jp:other).push(s)});
       var selected=window.__fxMarkets||{};
-      function rows(list){return list.map(function(s){var href=esc(s.url||(/^https?:/i.test(s.domain||'')?s.domain:'https://'+(s.domain||'')));return '<tr><td title="'+esc(s.title||s.brand||s.domain)+'"><b>'+esc(s.title||s.brand||s.domain)+'</b></td><td title="'+esc(s.domain||'—')+'"><a href="'+href+'" target="_blank" rel="noopener">'+esc(s.domain||'—')+'</a></td><td title="'+esc(s.region||'未标注')+'">'+esc(s.region||'未标注')+'</td><td>'+Number(s.count||0).toLocaleString('en-US')+'</td><td>'+Number(s.count_jewelry||0).toLocaleString('en-US')+'</td></tr>'}).join('')||'<tr><td colspan="5">没有匹配的站点</td></tr>'}
-      var markets=Array.from(new Set(other.map(function(s){return s.region||'未标注'}))).sort(), filtered=other.filter(function(s){return !Object.keys(selected).length||selected[s.region||'未标注']});
+      function marketLabel(site){
+        return (site.region||'未标注').split('/').map(function(region){
+          return ({US:'美国',澳洲:'澳大利亚'})[region]||region;
+        }).join('/');
+      }
+      function rows(list){return list.map(function(s){var href=esc(s.url||(/^https?:/i.test(s.domain||'')?s.domain:'https://'+(s.domain||'')));return '<tr><td title="'+esc(s.title||s.brand||s.domain)+'"><b>'+esc(s.title||s.brand||s.domain)+'</b></td><td title="'+esc(s.domain||'—')+'"><a href="'+href+'" target="_blank" rel="noopener">'+esc(s.domain||'—')+'</a></td><td title="'+esc(marketLabel(s))+'">'+esc(marketLabel(s))+'</td><td>'+Number(s.count||0).toLocaleString('en-US')+'</td><td>'+Number(s.count_jewelry||0).toLocaleString('en-US')+'</td></tr>'}).join('')||'<tr><td colspan="5">没有匹配的站点</td></tr>'}
+      var markets=Array.from(new Set(other.map(function(s){return marketLabel(s)}))).sort(), filtered=other.filter(function(s){return !Object.keys(selected).length||selected[marketLabel(s)]});
       var page=Math.max(1,Number(window.__fxBrandPage||1)),per=10,pages=Math.max(1,Math.ceil(filtered.length/per));if(page>pages)page=pages;window.__fxBrandPage=page;
       var pageRows=filtered.slice((page-1)*per,page*per);
       var picker='<details class="fx-market-picker"><summary>市场 ▾</summary><div class="fx-market-menu">'+markets.map(function(m){return '<label><input type="checkbox" data-fx-market="'+esc(m)+'" '+(!Object.keys(selected).length||selected[m]?'checked':'')+'> '+esc(m)+'</label>'}).join('')+'<button type="button" data-fx-market-all>全选</button></div></details>';
