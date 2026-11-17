@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-16T10:20:11.970Z",
+  "generatedAt": "2026-11-17T01:49:06.655722+00:00",
   "release": "2026-11-16",
-  "source": "全球珠宝竞品调研工作台_20261116增量审核版.html",
-  "sourceBytes": 247326620,
-  "sourceSha256": "634f1215c10e9cb6c3ba3c8b32041acb4387b12347550bb151a0c197d4e648a7",
+  "source": "全球珠宝竞品调研工作台_20261117版本日志优化.html",
+  "sourceBytes": 247328001,
+  "sourceSha256": "d1ce2a1a844e8973773b8fa3869ef9645776ed7677e68ceeb9c32839b2a9b20e",
   "sites": 69,
   "products": 42697,
   "visionS": 71818,
@@ -298,8 +298,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 956982,
-      "sha256": "ee8a17954cbbd9121e95b72a9c51fc45d4bba03c89ff41643e37405a78472cc7"
+      "bytes": 958363,
+      "sha256": "5b36378c176cab142af2b49a49421793e3ba9d9195e9b1fe6ffe97aa673d4c28"
     }
   ],
   "scriptsCompiled": 11,

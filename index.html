@@ -1127,6 +1127,10 @@ section,.section{background:transparent!important;border:0!important;border-radi
 .v-version-line{margin-top:3px;line-height:1.6}
 #workbenchVersionLog .v-version-line b{display:inline;margin-right:.7em;font-size:13px;color:#17375f}
 #workbenchVersionLog .v-version-line span{display:inline;font-size:12px;color:#536e8a}
+#workbenchVersionLog .v-version-toggle{margin-top:12px;padding:7px 12px;border:1px solid #c6d2e2;border-radius:8px;background:#fff;color:#173f73;font-size:12px;cursor:pointer}
+#workbenchVersionLog .v-version-toggle:hover{background:#edf3fb}
+#workbenchVersionLog .v-version-toggle:focus-visible{outline:2px solid #173f73;outline-offset:2px}
+#workbenchVersionLog .v-version-archive{margin-top:10px}
 .v-badge{display:inline-flex;border-radius:6px;padding:2px 6px;font-size:10px;font-weight:600;white-space:nowrap;vertical-align:middle;margin-left:6px;background:#e7f5ef;color:#187a62;border:1px solid #cae7da;line-height:1.5}
 .v-badge.new-site{background:#eaf0fc;color:#355caa;border-color:#d0ddf5}
 .v-badge.updated{background:#f2f4f7;color:#627084;border-color:#dfe5ed}
@@ -6658,15 +6662,34 @@ var VISION_PAYLOAD = window.__PUB_VISION__;
     var grid=document.getElementById('brandGrid'),sites=document.getElementById('fxSites');if(!grid||!sites)return;
     var panel=document.getElementById('workbenchVersionLog');
     if(!panel){panel=document.createElement('section');panel.id='workbenchVersionLog';panel.className='version-history';(grid.closest('section')||grid).insertAdjacentElement('afterend',panel)}
-    // Keep the full history in data. Intermediate builds and publication records for the same build stay off this list.
+    // Show published releases. Internal builds and duplicate publication records stay out of the log.
     var versions=(h.versions||[]).filter(function(v){return v.show_in_version_log!==false})
       .sort(function(a,b){return a.date.localeCompare(b.date)});
-    var visible=versions.length>3?[versions[0]].concat(versions.slice(-2)):versions;
-    panel.innerHTML='<h3>版本日志</h3><ol class="v-version-list">'+visible.map(function(v){
-      var summary=n(v.sites)+' 个竞品站点 · '+n(v.products)+' 件商品';
-      if(v.summary)summary+='。'+v.summary;
-      return '<li class="v-version'+(v.id===h.current?' current':'')+'"><time datetime="'+esc(v.date)+'">'+esc(v.date)+'</time><div class="v-version-line"><b>'+esc(v.display_label||v.label)+'</b><span>'+esc(summary)+'</span></div></li>';
-    }).join('')+'</ol>';
+    var recent=versions.slice(-2), history=versions.slice(0,-2);
+    var archiveId='workbenchVersionArchive';
+    var previousArchive=document.getElementById(archiveId);
+    var expanded=!!previousArchive&&!previousArchive.hidden;
+    function versionList(records){
+      return '<ol class="v-version-list">'+records.map(function(v){
+        var summary=n(v.sites)+' 个竞品站点 · '+n(v.products)+' 件商品';
+        if(v.summary)summary+='。'+v.summary;
+        return '<li class="v-version'+(v.id===h.current?' current':'')+'"><time datetime="'+esc(v.date)+'">'+esc(v.date)+'</time><div class="v-version-line"><b>'+esc(v.display_label||v.label)+'</b><span>'+esc(summary)+'</span></div></li>';
+      }).join('')+'</ol>';
+    }
+    function historyLabel(open){return open?'收起历史版本':'展开历史版本'}
+    panel.innerHTML='<h3>版本日志</h3>'+versionList(recent);
+    if(history.length){
+      panel.insertAdjacentHTML('beforeend',
+        '<button type="button" class="btn v-version-toggle" aria-controls="'+archiveId+'" aria-expanded="'+expanded+'">'+historyLabel(expanded)+'</button>'+
+        '<div class="v-version-archive" id="'+archiveId+'"'+(expanded?'':' hidden')+'>'+versionList(history)+'</div>');
+      var button=panel.querySelector('.v-version-toggle'), archive=panel.querySelector('#'+archiveId);
+      button.addEventListener('click',function(){
+        var open=archive.hidden;
+        archive.hidden=!open;
+        button.setAttribute('aria-expanded',String(open));
+        button.textContent=historyLabel(open);
+      });
+    }
   }
   var clearingStars=false;
   function stars(){return window.WB?window.WB.get('wb_stars_v1',{})||{}:JSON.parse(localStorage.getItem('wb_stars_v1')||'{}')}
